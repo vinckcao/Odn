@@ -39,7 +39,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OdnException.cs" />
+    <Compile Include="Configuration\SettingProvider.cs" />
+    <Compile Include="Configuration\Startup\IModuleConfigurations.cs" />
+    <Compile Include="Configuration\Startup\IOdnStartupConfiguration.cs" />
+    <Compile Include="Configuration\Startup\ISettingsConfiguration.cs" />
+    <Compile Include="Dependency\ISingletonDependency.cs" />
+    <Compile Include="Dependency\ITransientDependency.cs" />
+    <Compile Include="Modules\DependsOnAttribute.cs" />
+    <Compile Include="OdnInitializationException.cs" />
+    <Compile Include="Collections\Extensions\CollectionExtensions.cs" />
+    <Compile Include="Collections\Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Collections\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Collections\Extensions\ListExtensions.cs" />
+    <Compile Include="Collections\ITypeList.cs" />
+    <Compile Include="Collections\TypeList.cs" />
+    <Compile Include="Configuration\IDictionaryBasedConfig.cs" />
+    <Compile Include="DependencyContainer\IIocContainer.cs" />
+    <Compile Include="Dependency\DependencyLifeStyle.cs" />
+    <Compile Include="Dependency\DisposableDependencyObjectWrapper.cs" />
+    <Compile Include="Dependency\Extensions\IocRegistrarExtensions.cs" />
+    <Compile Include="Dependency\Extensions\IocResolverExtensions.cs" />
+    <Compile Include="Dependency\IDisposableDependencyObjectWrapper.cs" />
+    <Compile Include="Dependency\IDisposableDependencyObjectWrapperOfT.cs" />
+    <Compile Include="Dependency\IIocManager.cs" />
+    <Compile Include="Dependency\IIocRegistrar.cs" />
+    <Compile Include="Dependency\IIocResolver.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\NullLogger.cs" />
+    <Compile Include="Modules\OdnModule.cs" />
+    <Compile Include="Modules\OdnModuleInfo.cs" />
+    <Compile Include="Modules\IModuleFinder.cs" />
+    <Compile Include="Modules\IOdnModuleManager.cs" />
+    <Compile Include="OdnBootstraper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\CurrentDomainAssemblyFinder.cs" />
+    <Compile Include="Reflection\Extensions\MemberInfoExtensions.cs" />
+    <Compile Include="Reflection\IAssemblyFinder.cs" />
+    <Compile Include="Reflection\ITypeFinder.cs" />
+    <Compile Include="Reflection\ReflectionHelper.cs" />
+    <Compile Include="Reflection\TypeFinder.cs" />
+    <Compile Include="Reflection\TypeHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
