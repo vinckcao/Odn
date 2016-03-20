@@ -25,15 +25,6 @@ namespace Odn
         /// <summary>
         /// Creates a new <see cref="AbpBootstrapper"/> instance.
         /// </summary>
-        public OdnBootstrapper()
-            //: this(Dependency.IocManager.Instance)
-        {
-
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="AbpBootstrapper"/> instance.
-        /// </summary>
         /// <param name="iocManager">IIocManager that is used to bootstrap the ABP system</param>
         public OdnBootstrapper(IIocManager iocManager)
         {

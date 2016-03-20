@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odn", "Odn\Odn.csproj", "{FCAD3EE5-31DC-4A54-8E32-BDCDAC50A7CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odn.Web", "Odn.Web\Odn.Web.csproj", "{DEDF8A22-E551-446F-BDD4-0E15050A97E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IocContainer", "IocContainer", "{A806E34D-5B55-44DB-816C-C3FFEB2BE31C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odn.IocContainer.Castle", "IocContainer\Odn.IocContainer.Castle\Odn.IocContainer.Castle.csproj", "{7994C3B0-B01A-42D7-922E-52CC201C2DBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".git", ".git", "{A119EBB7-0508-48E0-87EB-3DD902F9B999}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odn.IocContainer.AutoFac", "IocContainer\Odn.IocContainer.AutoFac\Odn.IocContainer.AutoFac.csproj", "{6A553A68-39D6-4C78-B2BA-4FD312ADA16F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCAD3EE5-31DC-4A54-8E32-BDCDAC50A7CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCAD3EE5-31DC-4A54-8E32-BDCDAC50A7CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCAD3EE5-31DC-4A54-8E32-BDCDAC50A7CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCAD3EE5-31DC-4A54-8E32-BDCDAC50A7CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEDF8A22-E551-446F-BDD4-0E15050A97E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEDF8A22-E551-446F-BDD4-0E15050A97E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEDF8A22-E551-446F-BDD4-0E15050A97E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEDF8A22-E551-446F-BDD4-0E15050A97E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7994C3B0-B01A-42D7-922E-52CC201C2DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7994C3B0-B01A-42D7-922E-52CC201C2DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7994C3B0-B01A-42D7-922E-52CC201C2DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7994C3B0-B01A-42D7-922E-52CC201C2DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A553A68-39D6-4C78-B2BA-4FD312ADA16F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A553A68-39D6-4C78-B2BA-4FD312ADA16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A553A68-39D6-4C78-B2BA-4FD312ADA16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A553A68-39D6-4C78-B2BA-4FD312ADA16F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7994C3B0-B01A-42D7-922E-52CC201C2DBA} = {A806E34D-5B55-44DB-816C-C3FFEB2BE31C}
+		{6A553A68-39D6-4C78-B2BA-4FD312ADA16F} = {A806E34D-5B55-44DB-816C-C3FFEB2BE31C}
+	EndGlobalSection
+EndGlobal

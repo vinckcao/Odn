@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localization\GlobalizationHelper.cs" />
     <Compile Include="OdnException.cs" />
     <Compile Include="Configuration\SettingProvider.cs" />
     <Compile Include="Configuration\Startup\IModuleConfigurations.cs" />

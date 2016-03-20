@@ -1,20 +1,26 @@
 ﻿using Odn.Dependency.Extensions;
 using Odn.Reflection;
 using System;
+using System.Globalization;
+using System.Threading;
 using System.Web;
+using Odn.Dependency;
+using Odn.Localization;
 
 namespace Odn.Web
 {
     public class OdnWebApplication : HttpApplication
     {
+        private const string LocalizationCultureName = "Odn.Localization.CultureName";
+
         /// <summary>
         /// Gets a reference to the <see cref="AbpBootstrapper"/> instance.
         /// </summary>
-        protected OdnBootstrapper OdnBootstrapper { get; private set; }
+        private OdnBootstrapper OdnBootstrapper { get; set; }
 
-        protected OdnWebApplication()
+        protected OdnWebApplication(IIocManager iocManager)
         {
-            OdnBootstrapper = new OdnBootstrapper();
+            OdnBootstrapper = new OdnBootstrapper(iocManager);
         }
 
         /// <summary>
@@ -46,12 +52,12 @@ namespace Odn.Web
         /// </summary>
         protected virtual void Application_BeginRequest(object sender, EventArgs e)
         {
-            //var langCookie = Request.Cookies["Abp.Localization.CultureName"];
-            //if (langCookie != null && GlobalizationHelper.IsValidCultureCode(langCookie.Value))
-            //{
-            //    Thread.CurrentThread.CurrentCulture = new CultureInfo(langCookie.Value);
-            //    Thread.CurrentThread.CurrentUICulture = new CultureInfo(langCookie.Value);
-            //}
+            var langCookie = Request.Cookies[LocalizationCultureName];
+            if (langCookie != null && GlobalizationHelper.IsValidCultureCode(langCookie.Value))
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(langCookie.Value);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(langCookie.Value);
+            }
         }
 
         /// <summary>

@@ -9,10 +9,10 @@ namespace Odn.Dependency
 {
     public interface IIocManager : IIocRegistrar, IIocResolver, IDisposable
     {
-        /// <summary>
-        /// Reference to the Castle Windsor Container.
-        /// </summary>
-        IIocContainer IocContainer { get; }
+        ///// <summary>
+        ///// Reference to the Castle Windsor Container.
+        ///// </summary>
+        //IIocContainer IocContainer { get; }
 
         /// <summary>
         /// Checks whether given type is registered before.
