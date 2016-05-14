@@ -23,6 +23,16 @@ namespace Odn.Tests
         }
     }
 
+    public class OdnBootStrapperTest
+    {
+        [Fact]
+        public void Test()
+        {
+            OdnBootstrapper bootstrapper = new OdnBootstrapper();
+            Assert.True(true);
+        }
+    }
+
     public class IocManager_Tests : TestBaseWithLocalIocManager
     {
         [Fact]

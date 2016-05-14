@@ -18,9 +18,9 @@ namespace Odn.Web
         /// </summary>
         private OdnBootstrapper OdnBootstrapper { get; set; }
 
-        protected OdnWebApplication(IIocManager iocManager)
+        protected OdnWebApplication()
         {
-            OdnBootstrapper = new OdnBootstrapper(iocManager);
+            OdnBootstrapper = new OdnBootstrapper();
         }
 
         /// <summary>

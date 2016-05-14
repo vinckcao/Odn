@@ -71,7 +71,6 @@ namespace Odn.Reflection
         }
         #endregion
 
-        #region Nop提供的方法
         #region Fields
 
         private bool ignoreReflectionErrors = true;
@@ -213,8 +212,6 @@ namespace Odn.Reflection
 
         #endregion
 
-        #region Utilities
-
         /// <summary>
         /// Iterates all assemblies in the AppDomain and if it's name matches the configured patterns add it to our list.
         /// </summary>
@@ -354,7 +351,5 @@ namespace Odn.Reflection
                 return false;
             }
         }
-
-        #endregion
     }
 }

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Castle.Windsor;
 
 namespace Odn.Dependency
 {
     public interface IIocManager : IIocRegistrar, IIocResolver, IDisposable
     {
-        ///// <summary>
-        ///// Reference to the Castle Windsor Container.
-        ///// </summary>
-        //IIocContainer IocContainer { get; }
+        /// <summary>
+        /// Reference to the Castle Windsor Container.
+        /// </summary>
+        IWindsorContainer IocContainer { get; }
 
         /// <summary>
         /// Checks whether given type is registered before.

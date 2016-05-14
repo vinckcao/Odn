@@ -8,7 +8,7 @@ namespace Odn.Modules
 {
     /// <summary>
     /// Used to define dependencies of an ABP module to other modules.
-    /// It should be used for a class derived from <see cref="AbpModule"/>.
+    /// It should be used for a class derived from <see cref="OdnModule"/>.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public class DependsOnAttribute : Attribute

@@ -13,7 +13,7 @@ namespace Odn.Tests.Bootstrapper
 
         protected Bootstrap_Test()
         {
-            this.bootstrapper = new OdnBootstrapper(new IocManager());
+            this.bootstrapper = new OdnBootstrapper();
             bootstrapper.Initialize();
         }
 
