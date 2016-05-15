@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odn.Web.Api", "Odn.Web.Api\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odn.Web.Mvc", "Odn.Web.Mvc\Odn.Web.Mvc.csproj", "{3435B5CE-0E7B-40DC-AFD2-34EC25F25E12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odn.Authorizations", "Odn.Authorizations\Odn.Authorizations.csproj", "{145F9321-C00B-4D0B-B8C5-00F78D51C3DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{3435B5CE-0E7B-40DC-AFD2-34EC25F25E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3435B5CE-0E7B-40DC-AFD2-34EC25F25E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3435B5CE-0E7B-40DC-AFD2-34EC25F25E12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{145F9321-C00B-4D0B-B8C5-00F78D51C3DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{145F9321-C00B-4D0B-B8C5-00F78D51C3DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{145F9321-C00B-4D0B-B8C5-00F78D51C3DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{145F9321-C00B-4D0B-B8C5-00F78D51C3DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

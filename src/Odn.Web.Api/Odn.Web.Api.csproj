@@ -7,7 +7,7 @@
     <ProjectGuid>{5869DF1E-111D-48BE-A00D-D6861BA90220}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Odn.Web.Api</RootNamespace>
+    <RootNamespace>Odn</RootNamespace>
     <AssemblyName>Odn.Web.Api</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -68,10 +68,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbpWebApiModule.cs" />
+    <Compile Include="WebApi\AbpWebApiModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebApi\Authorization\AbpApiAuthorizeAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Odn.Authorizations\Odn.Authorizations.csproj">
+      <Project>{145f9321-c00b-4d0b-b8c5-00f78d51c3de}</Project>
+      <Name>Odn.Authorizations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Odn.Web\Odn.Web.csproj">
       <Project>{dedf8a22-e551-446f-bdd4-0e15050a97e4}</Project>
       <Name>Odn.Web</Name>
@@ -83,6 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

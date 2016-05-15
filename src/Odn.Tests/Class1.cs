@@ -14,7 +14,7 @@ namespace Odn.Tests
 
         protected TestBaseWithLocalIocManager()
         {
-            LocalIocManager = new IocManager();
+            LocalIocManager = IocManager.Instance;
         }
 
         public virtual void Dispose()

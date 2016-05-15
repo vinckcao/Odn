@@ -20,18 +20,22 @@ namespace Odn.Dependency
 
         public virtual IWindsorContainer IocContainer => _iocContainer;
 
-        public IocManager(IWindsorContainer iocContainer = null)
+        /// <summary>
+        /// The Singleton instance.
+        /// </summary>
+        public static IocManager Instance { get; private set; }
+        static IocManager()
         {
-            if (iocContainer == null)
-                iocContainer = new WindsorContainer();
-            this._iocContainer = iocContainer;
+            Instance = new IocManager();
+        }
 
-            //_container.ComponentRegistry.Register();
-            //IocContainer = new WindsorContainer();
-            //_conventionalRegistrars = new List<IConventionalDependencyRegistrar>();
+
+        IocManager()
+        {
+            this._iocContainer = new WindsorContainer();
 
             //Register self!
-            IocContainer.Register(Component.For<IocManager, IIocManager, IIocRegistrar, IIocResolver>().UsingFactoryMethod(() => this));
+            this._iocContainer.Register(Component.For<IocManager, IIocManager, IIocRegistrar, IIocResolver>().UsingFactoryMethod(() => this));
         }
 
         public void RegisterAssemblyByConvention(Assembly assembly)
@@ -99,7 +103,7 @@ namespace Odn.Dependency
             IocContainer.Dispose();
         }
 
-        private static ComponentRegistration<T> ApplyLifestyle<T>(ComponentRegistration<T> registration, DependencyLifeStyle lifeStyle) 
+        private static ComponentRegistration<T> ApplyLifestyle<T>(ComponentRegistration<T> registration, DependencyLifeStyle lifeStyle)
             where T : class
         {
             switch (lifeStyle)

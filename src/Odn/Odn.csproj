@@ -55,6 +55,7 @@
     <Compile Include="Dependency\Installers\OdnCoreInstaller.cs" />
     <Compile Include="Dependency\IocManager.cs" />
     <Compile Include="Localization\GlobalizationHelper.cs" />
+    <Compile Include="Logging\LogHelper.cs" />
     <Compile Include="Modules\AbpModuleCollection.cs" />
     <Compile Include="Modules\AbpModuleInfo.cs" />
     <Compile Include="Modules\DefaultModuleFinder.cs" />

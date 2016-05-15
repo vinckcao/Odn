@@ -7,7 +7,7 @@
     <ProjectGuid>{3435B5CE-0E7B-40DC-AFD2-34EC25F25E12}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Odn.Web.Mvc</RootNamespace>
+    <RootNamespace>Odn</RootNamespace>
     <AssemblyName>Odn.Web.Mvc</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

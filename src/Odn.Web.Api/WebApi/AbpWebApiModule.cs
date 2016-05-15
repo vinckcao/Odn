@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Odn.Dependency;
 using Odn.Modules;
 
-namespace Odn.Web.Api
+namespace Odn.WebApi
 {
     /// <summary>
     /// This module provides Abp features for ASP.NET Web API.
