@@ -42,7 +42,7 @@ namespace Odn
 
             Singleton<IIocContainer>.Instance.RegisterWithInstance<OdnConfig>(config);//在IocContainer中注册OdnConfig
 
-            InitializeIocManager(container, false);
+            IocManager = InitializeIocManager(container, false);
 
             //容器注册
             RegisterDependencies();
@@ -68,6 +68,8 @@ namespace Odn
             if (Singleton<IIocContainer>.Instance == null || forceRecreate)
             {
                 Singleton<IIocContainer>.Instance = Activator.CreateInstance(config.IocContainerType) as IIocContainer;
+
+                Singleton<IIocContainer>.Instance.Initialize();
             }
             return Singleton<IIocContainer>.Instance;
         }

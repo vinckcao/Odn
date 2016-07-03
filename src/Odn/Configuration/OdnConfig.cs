@@ -27,6 +27,9 @@ namespace Odn.Configuration
             var startupNode = section.SelectSingleNode("Startup");
             config.IgnoreStartupTasks = GetBool(startupNode, "IgnoreStartupTasks");
 
+            var iocNode = section.SelectSingleNode("Ioc");
+            config.IocContainerType = GetSystemType(iocNode, "ContainerType");
+
             //var redisCachingNode = section.SelectSingleNode("RedisCaching");
             //config.RedisCachingEnabled = GetBool(redisCachingNode, "Enabled");
             //config.RedisCachingConnectionString = GetString(redisCachingNode, "ConnectionString");
@@ -62,6 +65,22 @@ namespace Odn.Configuration
         private bool GetBool(XmlNode node, string attrName)
         {
             return SetByXElement<bool>(node, attrName, Convert.ToBoolean);
+        }
+
+        private Type GetSystemType(XmlNode node, string attrName)
+        {
+            var typeString = GetString(node, attrName);
+            if (string.IsNullOrWhiteSpace(typeString))
+            {
+                throw new OdnFrameworkException($"OdnConfig初始化失败, 配置项{node.Name}.{attrName}.{typeString}不能为空");
+            }
+
+            Type t = Type.GetType(typeString.Trim(), false, false);
+            if (t == null)
+            {
+                throw new OdnFrameworkException($"OdnConfig初始化失败, 获取{node.Name}.{attrName}的Type:{typeString}时失败, 未在系统中找到对应的类型, 请确认是否有加载对应的DLL");
+            }
+            return t;
         }
 
         private T SetByXElement<T>(XmlNode node, string attrName, Func<string, T> converter)

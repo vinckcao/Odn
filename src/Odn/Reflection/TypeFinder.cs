@@ -22,14 +22,14 @@ namespace Odn.Reflection
         }
 
         #region Abp提供的方法
-        public Type[] Find(Func<Type, bool> predicate)
+        public IEnumerable<Type> Find(Func<Type, bool> predicate)
         {
             return GetAllTypes().Where(predicate).ToArray();
         }
 
-        public Type[] FindAll()
+        public IEnumerable<Type> FindAll()
         {
-            return GetAllTypes().ToArray();
+            return GetAllTypes();
         }
 
         private List<Type> GetAllTypes()

@@ -29,9 +29,15 @@ namespace Odn.Dependency
 
     public interface IIocContainer
     {
-        void RegisterWithInstance<T>(T instance, DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton);
+        /// <summary>
+        /// 构造函数以外的初始化
+        /// </summary>
+        void Initialize();
+
+        void RegisterWithInstance<T>(T instance, DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton) where T : class;
 
         void Register(Type type, DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton);
+
         void Register(Type type, Type impl, DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton);
 
         void Register<TType>(DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton)
@@ -46,25 +52,25 @@ namespace Odn.Dependency
             where TType2 : class
             where TImpl : class, TType1, TType2;
 
-        void Register<TType1, TType2, TType3, TImpl>(DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton)
-            where TType1 : class
-            where TType2 : class
-            where TType3 : class
-            where TImpl : class, TType1, TType2, TType3;
+        //void Register<TType1, TType2, TType3, TImpl>(DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton)
+        //    where TType1 : class
+        //    where TType2 : class
+        //    where TType3 : class
+        //    where TImpl : class, TType1, TType2, TType3;
 
-        void Register<TType1, TType2, TType3, TType4, TImpl>(DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton)
-            where TType1 : class
-            where TType2 : class
-            where TType3 : class where TType4 : class
-            where TImpl : class, TType1, TType2, TType3, TType4;
+        //void Register<TType1, TType2, TType3, TType4, TImpl>(DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton)
+        //    where TType1 : class
+        //    where TType2 : class
+        //    where TType3 : class where TType4 : class
+        //    where TImpl : class, TType1, TType2, TType3, TType4;
 
-        void Register<TType1, TType2, TType3, TType4, TType5, TImpl>(DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton)
-            where TType1 : class
-            where TType2 : class
-            where TType3 : class
-            where TType4 : class
-            where TType5 : class
-            where TImpl : class, TType1, TType2, TType3, TType4, TType5;
+        //void Register<TType1, TType2, TType3, TType4, TType5, TImpl>(DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton)
+        //    where TType1 : class
+        //    where TType2 : class
+        //    where TType3 : class
+        //    where TType4 : class
+        //    where TType5 : class
+        //    where TImpl : class, TType1, TType2, TType3, TType4, TType5;
 
         bool IsRegistered(Type type);
 
@@ -75,7 +81,9 @@ namespace Odn.Dependency
         T Resolve<T>(object argumentsAsAnonymousType);
 
         object Resolve(Type type, object argumentsAsAnonymousType);
+
         void Release(object obj);
+
         void Dispose();
     }
 

@@ -11,9 +11,9 @@ namespace Odn.Reflection
     {
 
         #region 返回值Abp喜欢用数组
-        Type[] Find(Func<Type, bool> predicate);
+        IEnumerable<Type> Find(Func<Type, bool> predicate);
 
-        Type[] FindAll(); 
+        IEnumerable<Type> FindAll(); 
         #endregion
 
 

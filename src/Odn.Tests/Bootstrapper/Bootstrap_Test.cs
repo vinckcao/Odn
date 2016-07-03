@@ -7,7 +7,7 @@ using Odn.Dependency;
 
 namespace Odn.Tests.Bootstrapper
 {
-    public abstract class Bootstrap_Test : IDisposable
+    public abstract class Bootstrap_Test : System.IDisposable
     {
         private OdnBootstrapper bootstrapper;
 

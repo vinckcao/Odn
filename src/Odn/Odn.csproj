@@ -90,6 +90,7 @@
     <Compile Include="OdnBootstraper.cs" />
     <Compile Include="OdnKernelModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\AppDomainTypeFinder.cs" />
     <Compile Include="Reflection\CurrentDomainAssemblyFinder.cs" />
     <Compile Include="Reflection\Extensions\MemberInfoExtensions.cs" />
     <Compile Include="Reflection\IAssemblyFinder.cs" />

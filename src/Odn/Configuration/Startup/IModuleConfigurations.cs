@@ -17,4 +17,14 @@ namespace Odn.Configuration.Startup
         /// </summary>
         IOdnStartupConfiguration OdnConfiguration { get; }
     }
+
+    internal class ModuleConfigurations : IModuleConfigurations
+    {
+        public IOdnStartupConfiguration OdnConfiguration { get; private set; }
+
+        public ModuleConfigurations(IOdnStartupConfiguration odnConfiguration)
+        {
+            OdnConfiguration = odnConfiguration;
+        }
+    }
 }

@@ -15,6 +15,11 @@ namespace Odn.Dependency.Castle
 
         public CastleContainer()
         {
+
+        }
+
+        public void Initialize()
+        {
             _windsorContainer = new WindsorContainer();
         }
 
@@ -43,7 +48,7 @@ namespace Odn.Dependency.Castle
             throw new NotImplementedException();
         }
 
-        public void RegisterWithInstance<T>(T instance, DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton)
+        public void RegisterWithInstance<T>(T instance, DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton) where T : class
         {
             throw new NotImplementedException();
         }
@@ -73,27 +78,17 @@ namespace Odn.Dependency.Castle
             throw new NotImplementedException();
         }
 
-        void IIocContainer.Register<TType, TImpl>(DependencyLifeStyle lifeStyle)
+        public void Register<TType, TImpl>(DependencyLifeStyle lifeStyle)
+             where TType : class
+             where TImpl : class, TType
         {
             throw new NotImplementedException();
         }
 
-        void IIocContainer.Register<TType1, TType2, TImpl>(DependencyLifeStyle lifeStyle)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IIocContainer.Register<TType1, TType2, TType3, TImpl>(DependencyLifeStyle lifeStyle)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IIocContainer.Register<TType1, TType2, TType3, TType4, TImpl>(DependencyLifeStyle lifeStyle)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IIocContainer.Register<TType1, TType2, TType3, TType4, TType5, TImpl>(DependencyLifeStyle lifeStyle)
+        public void Register<TType1, TType2, TImpl>(DependencyLifeStyle lifeStyle)
+            where TType1 : class
+            where TType2 : class
+            where TImpl : class, TType1, TType2
         {
             throw new NotImplementedException();
         }

@@ -9,6 +9,11 @@ namespace Odn.Configuration.Startup
 {
     public class OdnStartupConfiguration : DictionayBasedConfig, IOdnStartupConfiguration
     {
+        public OdnStartupConfiguration(IIocManager iocManager)
+        {
+            this.IocManager = iocManager;
+        }
+
         public IIocManager IocManager { get; private set; }
 
         public IModuleConfigurations Modules { get; private set; }
