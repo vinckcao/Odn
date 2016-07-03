@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Bootstrapper\Bootstrap_Test.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Infrastructure\SingletonTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

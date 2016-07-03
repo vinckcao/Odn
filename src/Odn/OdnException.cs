@@ -51,4 +51,12 @@ namespace Odn
 
         }
     }
+
+    public class OdnFrameworkException : OdnException
+    {
+        public OdnFrameworkException(string message, Exception innerException = null) : base(message, innerException)
+        {
+
+        }
+    }
 }

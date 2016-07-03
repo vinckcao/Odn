@@ -21,5 +21,10 @@ namespace Odn.Dependency
         /// Transient object. Created one object for every resolving.
         /// </summary>
         Transient,
+
+        /// <summary>
+        /// 按某个范围
+        /// </summary>
+        PerScope,
     }
 }

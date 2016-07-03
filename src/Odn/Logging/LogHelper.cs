@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Odn.Dependency;
+using NLog;
 
 namespace Odn.Logging
 {
@@ -13,16 +14,13 @@ namespace Odn.Logging
     /// </summary>
     public class LogHelper
     {
-        /// <summary>
-        /// A reference to the logger.
-        /// </summary>
         public static ILogger Logger { get; private set; }
 
         static LogHelper()
         {
             Logger = IocManager.Instance.IsRegistered(typeof(ILogger))
                 ? IocManager.Instance.Resolve<ILogger>()
-                : NullLogger.Instance;
+                : LogManager.GetLogger(OdnLoggerNames.FrameworkLoggerName);
         }
 
         public static void LogException(Exception ex)

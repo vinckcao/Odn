@@ -1,27 +1,24 @@
-﻿using Odn.Logging;
+﻿using NLog;
+using Odn.Collections.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Odn.Collections.Extensions;
 
 namespace Odn.Reflection
 {
     public class TypeFinder : ITypeFinder
     {
-        public ILogger Logger { get; set; }
+        public static ILogger Logger = LogManager.GetCurrentClassLogger();
 
         public IAssemblyFinder AssemblyFinder { get; set; }
 
         public TypeFinder()
         {
             AssemblyFinder = CurrentDomainAssemblyFinder.Instance;
-            Logger = NullLogger.Instance;
         }
 
         #region Abp提供的方法
@@ -63,7 +60,7 @@ namespace Odn.Reflection
                 }
                 catch (Exception ex)
                 {
-                    Logger.Warn(ex.ToString(), ex);
+                    Logger.Warn(ex, ex.Message);
                 }
             }
 

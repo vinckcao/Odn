@@ -1,12 +1,13 @@
-﻿using Odn.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Odn.Configuration;
+using Odn.Configuration.Startup;
 using Odn.Dependency;
 using Odn.Dependency.Installers;
+using Odn.Infrastructure;
+using Odn.Modules;
 using Odn.Reflection;
+using System;
+using System.Configuration;
+using System.Runtime.CompilerServices;
 
 namespace Odn
 {
@@ -24,16 +25,7 @@ namespace Odn
         /// </summary>
         public IIocManager IocManager { get; private set; }
 
-        /// <summary>
-        /// Creates a new <see /> instance.
-        /// </summary>
-        /// <param name="iocManager">IIocManager that is used to bootstrap the ABP system</param>
-        public OdnBootstrapper(IIocManager iocManager)
-        {
-            IocManager = iocManager;
-        }
-
-        public OdnBootstrapper() : this(Dependency.IocManager.Instance)
+        public OdnBootstrapper()
         {
             Initialize();
         }
@@ -41,36 +33,66 @@ namespace Odn
         /// <summary>
         /// Initializes the ABP system.
         /// </summary>
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public virtual void Initialize()
         {
+            var config = ConfigurationManager.GetSection("OdnConfig") as OdnConfig;
+
+            var container = InitializeIocContainer(config, false);
+
+            Singleton<IIocContainer>.Instance.RegisterWithInstance<OdnConfig>(config);//在IocContainer中注册OdnConfig
+
+            InitializeIocManager(container, false);
+
             //容器注册
             RegisterDependencies();
 
             //到这里容器开始工作
             IocManager.IocContainer.Install(new OdnCoreInstaller());
 
-            //IocManager.Resolve<AbpStartupConfiguration>().Initialize();
+            IocManager.Resolve<OdnStartupConfiguration>().Initialize();
 
             //初始化各个项目中的Module
             _moduleManager = IocManager.Resolve<IOdnModuleManager>();
             _moduleManager.InitializeModules();
         }
 
+        /// <summary>
+        /// 初始化IocContainer
+        /// </summary>
+        /// <param name="forceRecreate"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public static IIocContainer InitializeIocContainer(OdnConfig config, bool forceRecreate = false)
+        {
+            if (Singleton<IIocContainer>.Instance == null || forceRecreate)
+            {
+                Singleton<IIocContainer>.Instance = Activator.CreateInstance(config.IocContainerType) as IIocContainer;
+            }
+            return Singleton<IIocContainer>.Instance;
+        }
+
+        /// <summary>
+        /// 初始化IocManager并注册进IocContainer
+        /// </summary>
+        /// <param name="forceRecreate"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public static IIocManager InitializeIocManager(IIocContainer container, bool forceRecreate = false)
+        {
+            if (Singleton<IIocManager>.Instance == null || forceRecreate)
+            {
+                Singleton<IIocManager>.Instance = new IocManager(container);
+
+                container.RegisterWithInstance(Singleton<IIocManager>.Instance);//注册IocManager
+            }
+            return Singleton<IIocManager>.Instance;
+        }
+
         protected virtual void RegisterDependencies()
         {
-            //IocManager = IocManager.;
-            //var builder = new ContainerBuilder();
-            //var container = builder.Build();
-            ////this._containerManager = new ContainerManager(container);
-
-            ////we create new instance of ContainerBuilder
-            ////because Build() or Update() method can only be called once on a ContainerBuilder.
-
-            ////dependencies
+            //dependencies
             //var typeFinder = new TypeFinder();
-            //builder = new ContainerBuilder();
-            ////builder.RegisterInstance(config).As<NopConfig>().SingleInstance();
-            ////builder.RegisterInstance(this).As<IEngine>().SingleInstance();
 
             //builder.RegisterInstance(typeFinder).As<ITypeFinder>().SingleInstance();
             //builder.Update(container);
